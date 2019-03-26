@@ -31,6 +31,12 @@
 
             </intent-filter>
         </activity>
+        <activity android:name=".Register" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+            </intent-filter>
+        </activity>
         <activity android:name=".MsgDatail" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,18 +49,6 @@
 
             </intent-filter>
         </activity>
-        <receiver android:name=".Message$Rcv">
-            <intent-filter>
-                <action
-                    android:name="com.androidbook.intents.testbc"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".BroadcastRcv">
-            <intent-filter>
-                <action
-                    android:name="com.androidbook.intents.testbc"/>
-            </intent-filter>
-        </receiver>
         <service android:name=".MsgService"/>
     </application>
 

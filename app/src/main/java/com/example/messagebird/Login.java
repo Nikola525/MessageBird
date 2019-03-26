@@ -21,70 +21,90 @@ import networkpacket.NetworkPacket;
 
 public class Login extends Activity {
     private MsdBirdApplication app = null;
-    private EditText email = null;
+    private EditText usrid = null;
     private EditText password = null;
     private Button login = null;
-    Rcv broadcastRec = null;
-    BroadcastRcv rcv = null;
+    private Button toregiter = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         app = (MsdBirdApplication)getApplication();
-        email = findViewById(R.id.edtEamil_login);
+        usrid = findViewById(R.id.edtUsrid_login);
+        usrid.setText(String.valueOf(app.registeredusrid));
         password = findViewById(R.id.edtPassword_login);
-        broadcastRec = new Rcv();
-        rcv = new BroadcastRcv();
         login = findViewById(R.id.btnLogin_login);
         login.setOnClickListener(new View.OnClickListener() {
             NetworkPacket sndpkt = null;
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this,
-                        MsgService.class);
-                startService(intent);
+
+
                 sndpkt = new NetworkPacket();
                 sndpkt.type = NetworkPacket.TYPE_LOGIN;
-                sndpkt.email = email.getText().toString();
                 sndpkt.password = password.getText().toString();
-                sndpkt.content = new String("test");
-                //new LoginInBackGround().execute(sndpkt);
+                sndpkt.from = Long.parseLong(usrid.getText().toString());
+
+                new LoginInBackGround().execute(sndpkt);
+
+            }
+        });
+
+        toregiter = findViewById(R.id.btnLinkToRegisterScreen_login);
+        toregiter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Login.this,
+                        Register.class);
+                startActivity(intent);
             }
         });
 
     }
 
-    private class  LoginInBackGround extends AsyncTask<NetworkPacket, Void, String> {
+    private class  LoginInBackGround extends AsyncTask<NetworkPacket, Void, Boolean> {
         @Override
-        protected String doInBackground(NetworkPacket... packets) {
+        protected Boolean doInBackground(NetworkPacket... packets) {
 
             try{
 
 
                 app.oos.writeObject(packets[0]);
-                Log.i("content field:", packets[0].content);
 
-                return new String("Success.");
+                NetworkPacket rcvpkt = (NetworkPacket)app.ois.readObject();
+
+                if(rcvpkt.state == NetworkPacket.STATE_SUCCESS){
+                    return true;
+                }else{
+                    return false;
+                }
+
 
 
 
             }catch(Exception e){
                 e.printStackTrace();
-                return new String("Failed.");
+                return false;
             }
 
 
         }
         @Override
-        protected void onPostExecute(String content) {
-            if(true){
-                Toast.makeText(getApplicationContext(), content, Toast.LENGTH_SHORT).show();
-                //Intent intent = new Intent(Login.this,MainActivity.class);
-                //startActivity(intent);
+        protected void onPostExecute(Boolean b) {
+            if(b.booleanValue()){
+
+                app.logined = true;
+                app.usrid = Long.parseLong(usrid.getText().toString());
+                Intent intent = new Intent(Login.this,
+                        MainActivity.class);
+                startActivity(intent);
+
+
 
 
             }else{
-                Toast.makeText(getApplicationContext(), "id or password is incorrect.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "UserID or password is not correct,\n Please retry.", Toast.LENGTH_LONG).show();
             }
         }
 

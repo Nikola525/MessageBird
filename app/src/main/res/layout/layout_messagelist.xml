@@ -10,33 +10,40 @@ android:orientation="vertical" >
     android:orientation="horizontal" >
     <!-- LinnerLayout定义的三个控件，将成为ListView控件的模板 -->
     <ImageView
-        android:id="@+id/ivIcon"
+        android:id="@+id/ivIcon_messagelist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:maxHeight="5dp"
-        android:maxWidth="5dp"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:maxWidth="5dp" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvUsrID_messagelist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:text="好友名称" />
+        android:text="" />
 
     <TextView
-        android:id="@+id/tvSS"
+        android:id="@+id/tvName_messagelist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvMsg_messagelist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_weight="4"
-        android:text="签名" />
+        android:text="" />
 </LinearLayout>
 
 <ListView
-    android:id="@+id/lvArray"
+    android:id="@+id/lvArray_messagelist"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 

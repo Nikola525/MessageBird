@@ -2,28 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
+        <TextView
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:text=" UserID:  " />
 
         <EditText
-            android:id="@+id/edtEamil_login"
+            android:id="@+id/edtUsrid_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-
-            android:inputType="textEmailAddress"
             android:maxLength="70"
             android:padding="10dp"
             android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Passwd:  " />
 
         <EditText
             android:id="@+id/edtPassword_login"
@@ -34,23 +61,25 @@
             android:maxLength="70"
             android:padding="10dp"
             android:singleLine="true" />
+    </LinearLayout>
 
         <!-- Login Button -->
 
-        <Button
-            android:id="@+id/btnLogin_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
+    <Button
+        android:id="@+id/btnLogin_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/buttonbackgroud"
+        android:text="login" />
 
-        <!-- Link to Login Screen -->
 
-        <Button
-            android:id="@+id/btnLinkToRegisterScreen_login"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dip"
-            android:onClick="btnRegister" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnLinkToRegisterScreen_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dip"
+        android:background="@color/buttonbackgroud"
+        android:text="register" />
 
 </LinearLayout>

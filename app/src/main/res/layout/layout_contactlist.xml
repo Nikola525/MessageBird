@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <!-- LinnerLayout定义的三个控件，将成为ListView控件的模板 -->
+        <ImageView
+            android:id="@+id/ivIcon_contactlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:maxHeight="5dp"
+            android:maxWidth="5dp" />
+
+        <TextView
+            android:id="@+id/tvUsrID_contactlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvName_contactlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvPs_contactlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="4"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:text="" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvArray_contactlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

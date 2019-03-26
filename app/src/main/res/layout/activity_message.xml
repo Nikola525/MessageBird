@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
     <ListView
         android:id="@+id/listview_messagelist_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="#00F"
-        android:dividerHeight="10dp"/>
+        android:divider="@color/colorAccent"
+        android:dividerHeight="1dp"/>
 
 </LinearLayout>
