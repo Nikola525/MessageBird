@@ -3,6 +3,7 @@
 Introduction
 
   This Android application was designed to give its users the ability to communicate with each other on the Internet. It provides the some useful and fundamental functions like sending text message to the partner, adding a new partner account. 
+  ![demo](display/demo.PNG)
 
 Features
 
